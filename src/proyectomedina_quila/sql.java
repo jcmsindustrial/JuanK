@@ -17,7 +17,7 @@ import oracle.jdbc.driver.OracleDriver;
 
 /**
  *
- * @author Duoc UC
+ * @author Panchitox
  */
 public class sql {
     //usuario bd
