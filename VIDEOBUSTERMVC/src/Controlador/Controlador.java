@@ -141,12 +141,17 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         agre.menu_listar.addActionListener(this);
         agre.btn_agregar.addActionListener(this);
         agre.btn_volver_agregar.addActionListener(this);
+        agre.btn_limpiar_casillas_agregar.addActionListener(this);
        
     }
     
        
     @Override
     public void actionPerformed(ActionEvent e){
+        //Evento para el botón de la vista Agregar, que permite limpiar casillas y dejar el cursor en la primera casilla
+        if(e.getSource()==agre.btn_limpiar_casillas_agregar){
+            limpiarcamposagregar();
+        }
         //Eventos de los nuevos botones
         if(e.getSource()==listar.btn_agregar_categoria_drama){
             registro.agregarPeliculaDrama();
@@ -534,6 +539,7 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         agre.cb_categoria.setSelectedIndex(0);
         agre.cb_4k.setSelectedIndex(0);
         agre.txt_nombre.setText("");
+        agre.txt_codigo.grabFocus();
     }
     
     private void limpiarcamposeliminar(){
