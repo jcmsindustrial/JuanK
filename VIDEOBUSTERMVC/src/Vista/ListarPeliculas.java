@@ -17,6 +17,8 @@ public class ListarPeliculas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_mostrar = new javax.swing.JTable();
         btn_volver_listar = new javax.swing.JButton();
+        btn_agregar_categoria_drama = new javax.swing.JButton();
+        btn_agregar_categoria_comedia = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_opciones = new javax.swing.JMenu();
         menu_agregar = new javax.swing.JMenuItem();
@@ -44,6 +46,10 @@ public class ListarPeliculas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_mostrar);
 
         btn_volver_listar.setText("VOLVER");
+
+        btn_agregar_categoria_drama.setText("AGREGAR CATEGORÍA DRAMA");
+
+        btn_agregar_categoria_comedia.setText("AGREGAR CATEGORÍA COMEDIA");
 
         menu_opciones.setText("OPCIONES");
 
@@ -89,9 +95,15 @@ public class ListarPeliculas extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 626, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(411, 411, 411)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_volver_listar)
+                .addGap(74, 74, 74))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(321, 321, 321)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_agregar_categoria_drama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_agregar_categoria_comedia, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,9 +113,13 @@ public class ListarPeliculas extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btn_agregar_categoria_drama)
                 .addGap(18, 18, 18)
+                .addComponent(btn_agregar_categoria_comedia)
+                .addGap(31, 31, 31)
                 .addComponent(btn_volver_listar)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -142,6 +158,8 @@ public class ListarPeliculas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btn_agregar_categoria_comedia;
+    public javax.swing.JButton btn_agregar_categoria_drama;
     public javax.swing.JButton btn_volver_listar;
     private javax.swing.JLabel jLabel6;
     public javax.swing.JMenuBar jMenuBar1;

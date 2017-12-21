@@ -68,26 +68,26 @@ public class Menu_Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(30, 30, 30)
                 .addComponent(btn_vistaagregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(btn_vistalistar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btn_vistamodificar)
                 .addGap(35, 35, 35)
+                .addComponent(btn_vistamodificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(btn_vistaeliminar)
-                .addGap(25, 25, 25))
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+                .addContainerGap(146, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_vistaagregar)
-                    .addComponent(btn_vistaeliminar)
                     .addComponent(btn_vistalistar)
-                    .addComponent(btn_vistamodificar))
-                .addGap(29, 29, 29))
+                    .addComponent(btn_vistamodificar)
+                    .addComponent(btn_vistaeliminar))
+                .addGap(69, 69, 69))
         );
 
         pack();

@@ -130,6 +130,8 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         listar.btn_volver_listar.addActionListener(this);
         listar.tbl_mostrar.addMouseListener(this);//-->Evento de Mouse
         listar.tbl_mostrar.addFocusListener(this);//-->Evento de Foco
+        listar.btn_agregar_categoria_drama.addActionListener(this);
+        listar.btn_agregar_categoria_comedia.addActionListener(this);
         
         //Escuchas de la vista Agregar (de los menús)
         agre.menu_agregar.addActionListener(this);
@@ -145,6 +147,13 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
        
     @Override
     public void actionPerformed(ActionEvent e){
+        //Eventos de los nuevos botones
+        if(e.getSource()==listar.btn_agregar_categoria_drama){
+            registro.agregarPeliculaDrama();
+        }
+        if(e.getSource()==listar.btn_agregar_categoria_comedia){
+            registro.agregarPeliculaComedia();
+        }
         //Action Event de Ventana Menu Principal (eventos de los menús)
         if(e.getSource()==menu.menu_agregar){
             menu.setVisible(false);

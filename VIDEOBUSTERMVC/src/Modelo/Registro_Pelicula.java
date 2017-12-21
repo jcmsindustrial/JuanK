@@ -49,6 +49,30 @@ public class Registro_Pelicula{
         return false;
     }
     
+    public boolean agregarPeliculaDrama() {
+        try {
+            String query = "INSERT INTO videobuster.pelicula(codigo_pelicula, precio, id_categoria, formato4k, nombre) VALUES(18000,2500,6,'S','ALberto Enamorado')";
+            PreparedStatement ins = c.getConexion().prepareStatement(query);
+            ins.executeUpdate();
+            c.close(ins);
+        } catch (Exception e) {
+            System.out.println("Error al agregar " + e.getMessage());
+        }
+        return false;
+    }
+    
+    public boolean agregarPeliculaComedia() {
+        try {
+            String query = "INSERT INTO videobuster.pelicula(codigo_pelicula, precio, id_categoria, formato4k, nombre) VALUES(21500,3990,2,'N','Pancho del Sur')";
+            PreparedStatement ins = c.getConexion().prepareStatement(query);
+            ins.executeUpdate();
+            c.close(ins);
+        } catch (Exception e) {
+            System.out.println("Error al agregar " + e.getMessage());
+        }
+        return false;
+    }
+    
     public boolean eliminarPeliculaporCodigo(int codigo) {
         try {
             String query = "DELETE FROM videobuster.pelicula WHERE codigo_pelicula=?";
