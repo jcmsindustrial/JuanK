@@ -18,6 +18,7 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
     private final Modificar modi;
     private final ListarPeliculas listar;
     private final Agregar agre;
+    private final ListarRomance romance;
     
     Pelicula peli;
     Registro_Pelicula registro;
@@ -50,6 +51,13 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         validarSoloNumeros(eli.txt_precioeliminar);
         LimitarCaracteres(eli.txt_codigoeliminar, 5);
         LimitarCaracteres(eli.txt_precioeliminar, 6);
+        
+        //Seteo de la ventana Mostrar Romance
+        romance = new ListarRomance();
+        romance.setLocationRelativeTo(null);
+        romance.setResizable(false);
+        romance.setTitle("VIDEOBUSTER ---> SOLO ROMANCE");
+        actualizarMostrarromance();
        
         
         //Seteo de la ventana Modificar
@@ -81,6 +89,11 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         LimitarCaracteres(agre.txt_codigo, 5);
         LimitarCaracteres(agre.txt_precio, 6);
         
+        //Escucha ventana Romance
+        romance.tabla_romance.addFocusListener(this);
+        romance.tabla_romance.addMouseListener(this);
+        romance.btn_volver_romance.addActionListener(this);
+        
         //Escuchas de las ventanas (Eventos de Ventana)
         menu.addWindowListener(this);
         eli.addWindowListener(this);
@@ -100,6 +113,7 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         menu.btn_vistaeliminar.addActionListener(this);
         menu.btn_vistamodificar.addActionListener(this);
         menu.btn_vistalistar.addActionListener(this);
+        menu.btn_romance.addActionListener(this);
         
         //Escuchas de la vista eliminar (de los menús)(Eventos de Acción)
         eli.menu_agregar.addActionListener(this);
@@ -141,13 +155,31 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         agre.menu_listar.addActionListener(this);
         agre.btn_agregar.addActionListener(this);
         agre.btn_volver_agregar.addActionListener(this);
-        agre.btn_limpiar_casillas_agregar.addActionListener(this);
-       
+        agre.btn_limpiar_casillas_agregar.addActionListener(this);  
     }
     
        
     @Override
     public void actionPerformed(ActionEvent e){
+        //Evento de botón para volver al menú inicial desde Ventana ROmance
+        if(e.getSource()==romance.btn_volver_romance){
+            romance.setVisible(false);
+            menu.setVisible(true);
+        }
+        
+        //Evento para listar peliculas de categoría romance
+        if(e.getSource()==menu.btn_romance){
+            romance.setVisible(true);
+            menu.setVisible(false);
+            try {
+                registro.MostrarRomance();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         //Evento para el botón de la vista Agregar, que permite limpiar casillas y dejar el cursor en la primera casilla
         if(e.getSource()==agre.btn_limpiar_casillas_agregar){
             limpiarcamposagregar();
@@ -459,7 +491,11 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
     public void mouseEntered(MouseEvent me) {
         if(me.getSource()==listar.tbl_mostrar){
             actualizarMostrar();
-        }  
+        }
+        
+        if(me.getSource()==romance.tabla_romance){
+            actualizarMostrarromance();
+        }
     }
 
     @Override
@@ -562,6 +598,14 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
     public void actualizarMostrar() {
         try {
             listar.getTbl_mostrar().setModel(registro.Mostrar());
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void actualizarMostrarromance() {
+        try {
+            romance.getTabla_romance().setModel(registro.MostrarRomance());
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }

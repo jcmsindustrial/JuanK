@@ -14,6 +14,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         btn_vistaeliminar = new javax.swing.JButton();
         btn_vistamodificar = new javax.swing.JButton();
         btn_vistalistar = new javax.swing.JButton();
+        btn_romance = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JMenuBar();
         menu_opciones = new javax.swing.JMenu();
         menu_agregar = new javax.swing.JMenuItem();
@@ -32,6 +33,8 @@ public class Menu_Principal extends javax.swing.JFrame {
         btn_vistamodificar.setText("MODIFICAR");
 
         btn_vistalistar.setText("LISTAR");
+
+        btn_romance.setText("LISTAR ROMANCE");
 
         menu_opciones.setText("OPCIONES");
 
@@ -69,12 +72,14 @@ public class Menu_Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(btn_vistaagregar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_romance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_vistaagregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addComponent(btn_vistalistar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btn_vistamodificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_vistaeliminar)
                 .addGap(29, 29, 29))
         );
@@ -87,7 +92,9 @@ public class Menu_Principal extends javax.swing.JFrame {
                     .addComponent(btn_vistalistar)
                     .addComponent(btn_vistamodificar)
                     .addComponent(btn_vistaeliminar))
-                .addGap(69, 69, 69))
+                .addGap(18, 18, 18)
+                .addComponent(btn_romance)
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -127,6 +134,7 @@ public class Menu_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuBar MenuPrincipal;
+    public javax.swing.JButton btn_romance;
     public javax.swing.JButton btn_vistaagregar;
     public javax.swing.JButton btn_vistaeliminar;
     public javax.swing.JButton btn_vistalistar;

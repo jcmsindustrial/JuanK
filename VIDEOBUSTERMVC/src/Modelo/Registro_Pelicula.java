@@ -169,4 +169,41 @@ public class Registro_Pelicula{
         return tablemodel;
     }
     
+    public DefaultTableModel MostrarRomance() throws ClassNotFoundException, SQLException {
+        
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"CODIGO", "PRECIO", "CATEGORIA", "¿ULTRA HD?", "NOMBRE"};
+        
+        try {
+            PreparedStatement pstm = c.getConexion().prepareStatement("SELECT count(*) as total FROM videobuster.pelicula where id_categoria=4");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        Object[][] data = new String[registros][5];
+        try {
+            PreparedStatement pstm = c.getConexion().prepareStatement("select p.codigo_pelicula, p.precio, c.descripcion, p.formato4k, p.nombre from videobuster.pelicula as p LEFT join categoria as c ON p.Id_categoria=c.Id where p.id_categoria=4 order by p.codigo_pelicula ASC");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("codigo_pelicula");
+                data[i][1] = res.getString("precio");
+                data[i][2] = res.getString("c.descripcion");
+                data[i][3] = res.getString("formato4k");
+                data[i][4] = res.getString("nombre");
+                i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+    
 }
