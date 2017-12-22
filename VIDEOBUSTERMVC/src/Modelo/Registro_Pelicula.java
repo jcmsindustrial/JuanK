@@ -121,6 +121,18 @@ public class Registro_Pelicula{
         return false;
     }
     
+    public boolean modificarPeliculaconP() {
+        try {
+            String query = "UPDATE videobuster.pelicula SET nombre = concat('P',nombre);";
+            PreparedStatement mod = c.getConexion().prepareStatement(query);
+            mod.executeUpdate();
+            c.close(mod);
+        } catch (Exception e) {
+            System.out.println("Error al modificar " + e.getMessage());
+        }
+        return false;
+    }
+    
     public Pelicula buscarPeliculaporCodigo(int codigo) {
         Pelicula peli = null;
         try {

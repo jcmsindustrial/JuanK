@@ -143,6 +143,7 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         listar.btn_agregar_categoria_drama.addActionListener(this);
         listar.btn_agregar_categoria_comedia.addActionListener(this);
         listar.btn_eliminar2000.addActionListener(this);
+        listar.btn_agregaP.addActionListener(this);
         
         //Escuchas de la vista Agregar (de los menús)
         agre.menu_agregar.addActionListener(this);
@@ -158,6 +159,11 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
        
     @Override
     public void actionPerformed(ActionEvent e){
+        //Evento de boton que permite agregarles una p al inicio del nombre de cada pelicula
+        if(e.getSource()==listar.btn_agregaP){
+            registro.modificarPeliculaconP();
+        }
+        
         //Evento que permite asignarle al boton eliminar2000 todas las peliculas con precio superior a 2000
         if(e.getSource()==listar.btn_eliminar2000){
             registro.eliminarPelicula2000();
