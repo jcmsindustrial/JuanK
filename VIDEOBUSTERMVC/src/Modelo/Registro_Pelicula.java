@@ -89,6 +89,18 @@ public class Registro_Pelicula{
         return false;
     }
     
+    public boolean eliminarPelicula2000() {
+        try {
+            String query = "DELETE FROM videobuster.pelicula WHERE precio > 2000";
+            PreparedStatement eli = c.getConexion().prepareStatement(query);
+            eli.executeUpdate();
+            c.close(eli);
+        } catch (Exception e) {
+            System.out.println("Error al eliminar " + e.getMessage());
+        }
+        return false;
+    }
+    
     public boolean modificarPeliculaporCodigo(Pelicula peli) {
         try {
             String query = "UPDATE videobuster.pelicula SET precio=?, id_categoria=?, formato4k=?, nombre=? WHERE codigo_pelicula=?";

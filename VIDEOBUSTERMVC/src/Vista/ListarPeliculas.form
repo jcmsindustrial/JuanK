@@ -128,10 +128,11 @@
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btn_agregar_categoria_drama" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_agregar_categoria_comedia" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btn_eliminar2000" pref="310" max="32767" attributes="0"/>
+                  <Component id="btn_agregar_categoria_comedia" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btn_agregar_categoria_drama" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -144,11 +145,13 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="223" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
-              <Component id="btn_agregar_categoria_drama" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_agregar_categoria_drama" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btn_agregar_categoria_comedia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btn_eliminar2000" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Component id="btn_volver_listar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -204,6 +207,14 @@
     <Component class="javax.swing.JButton" name="btn_agregar_categoria_comedia">
       <Properties>
         <Property name="text" type="java.lang.String" value="AGREGAR CATEGOR&#xcd;A COMEDIA"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_eliminar2000">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ELIMINAR PELICULA CON PRECIO MAYOR A $2000"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

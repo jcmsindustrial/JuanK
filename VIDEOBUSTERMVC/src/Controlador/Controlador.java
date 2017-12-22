@@ -23,10 +23,6 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
     Pelicula peli;
     Registro_Pelicula registro;
     
-    public static void main (String [] args){
-        Controlador c= new Controlador();
-    }
-    
     public Controlador(){
         
         registro = new Registro_Pelicula();
@@ -146,6 +142,7 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
         listar.tbl_mostrar.addFocusListener(this);//-->Evento de Foco
         listar.btn_agregar_categoria_drama.addActionListener(this);
         listar.btn_agregar_categoria_comedia.addActionListener(this);
+        listar.btn_eliminar2000.addActionListener(this);
         
         //Escuchas de la vista Agregar (de los menús)
         agre.menu_agregar.addActionListener(this);
@@ -161,6 +158,11 @@ public class Controlador implements ActionListener, MouseListener, WindowListene
        
     @Override
     public void actionPerformed(ActionEvent e){
+        //Evento que permite asignarle al boton eliminar2000 todas las peliculas con precio superior a 2000
+        if(e.getSource()==listar.btn_eliminar2000){
+            registro.eliminarPelicula2000();
+        }
+        
         //Evento de botón para volver al menú inicial desde Ventana ROmance
         if(e.getSource()==romance.btn_volver_romance){
             romance.setVisible(false);
